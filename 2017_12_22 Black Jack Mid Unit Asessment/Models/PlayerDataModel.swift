@@ -64,10 +64,8 @@ class playerDataModel {
         
     }
     //Delete selected book from Favorite List
-    func resetList(fromIndex index: Int){
-        while !playerList.isEmpty{
+    func resetList(){
             playerList.removeAll()
-        }
     }
     
 }

@@ -17,6 +17,8 @@ class HistoryGameViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     @IBAction func resetHistoryButton(_ sender: UIButton) {
+        playerDataModel.shared.resetList()
+        self.players = playerDataModel.shared.getPlayerList()
     }
     
     
@@ -30,6 +32,7 @@ class HistoryGameViewController: UIViewController, UITableViewDelegate, UITableV
 //        PlayerTableViewCell
         let crazyCell = self.playersTableView.dequeueReusableCell(withIdentifier: "crazyCell") as! CustomTableViewCell
         crazyCell.cards = playerSetup.cardSet
+        crazyCell.playerScore.text = "Final Hand Score:\(playerSetup.score)"
         return crazyCell
     }
     

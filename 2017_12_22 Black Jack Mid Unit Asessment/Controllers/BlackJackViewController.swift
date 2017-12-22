@@ -51,6 +51,9 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
     
     @IBAction func stopButton(_ sender: UIButton) {
         // TODO: alert View and print the win stats
+        let alert = UIAlertController(title: "Game Over, You have lost", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
         self.cards.removeAll()
         self.drawCardOutlet.isEnabled = true
     }

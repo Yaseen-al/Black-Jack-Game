@@ -13,6 +13,7 @@ class CustomTableViewCell: UITableViewCell, UICollectionViewDataSource,UICollect
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cards.count
     }
+    @IBOutlet weak var playerScore: UILabel!
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cardSetup = cards[indexPath.row]
@@ -21,16 +22,10 @@ class CustomTableViewCell: UITableViewCell, UICollectionViewDataSource,UICollect
         ImageAPIClient.manager.getImage(from: cardSetup.images.png, completionHandler: {cell.cardPoster.image = $0}, errorHandler: {print($0)})
         return cell
     }
-    
-    
+
 
     @IBOutlet weak var playerCollectionView: UICollectionView!
-    
-    @IBOutlet weak var testImage: UIImageView!
-    
-    
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.playerCollectionView.delegate = self
