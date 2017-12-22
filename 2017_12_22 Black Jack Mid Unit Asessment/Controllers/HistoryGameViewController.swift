@@ -52,9 +52,10 @@ class HistoryGameViewController: UIViewController, UITableViewDelegate, UITableV
         self.players = playerDataModel.shared.getPlayerList()
 
     }
-
-
-
+    override func viewWillAppear(_ animated: Bool) {
+        playerDataModel.shared.loadPlayerList()
+        self.players = playerDataModel.shared.getPlayerList()
+    }
     /*
     // MARK: - Navigation
 

@@ -16,6 +16,9 @@ class CustomTableViewCell: UITableViewCell, UICollectionViewDataSource,UICollect
     @IBOutlet weak var playerScore: UILabel!
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard indexPath.row < cards.count else {
+            return UICollectionViewCell()
+        }
         let cardSetup = cards[indexPath.row]
         let cell = playerCollectionView.dequeueReusableCell(withReuseIdentifier: "specialCardCell", for: indexPath) as! CardCollectionViewCell
         cell.cardLabel.text = "cardValue:\(cardSetup.valueInt)"
