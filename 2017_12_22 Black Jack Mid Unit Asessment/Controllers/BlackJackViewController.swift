@@ -38,11 +38,19 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
             if player.score > 30{
                 self.drawCardOutlet.isEnabled = false
                 playerDataModel.shared.addPlayerToPlayerList(player: player)
+                let alert = UIAlertController(title: "Game Over", message: "You have lost", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                        alert.addAction(action)
+                present(alert, animated: true, completion: {self.tabBarController?.selectedIndex = 0})
             }
             else if player.score == 30{
                 currentScoreLabel.text = "You Won Score: \(player.score)"
                 self.drawCardOutlet.isEnabled = false
                 playerDataModel.shared.addPlayerToPlayerList(player: player)
+                let alert = UIAlertController(title: "Bust", message: "You have won", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                        alert.addAction(action)
+                present(alert, animated: true, completion: {self.tabBarController?.selectedIndex = 0})
                 }
             }
 
@@ -51,13 +59,12 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
     
     @IBAction func stopButton(_ sender: UIButton) {
         // TODO: alert View and print the win stats
-        let alert = UIAlertController(title: "Game Over, You have lost", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(action)
+
         self.cards.removeAll()
         self.drawCardOutlet.isEnabled = true
     }
     @IBAction func drawCardButton(_ sender: UIButton) {
+
         guard let cardDeck = cardDeck else {
         loadCardDeck()
             return
@@ -74,6 +81,8 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
         let cell = blackJackCollectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
         cell.cardLabel.text = "Card Value: \(cardSetup.valueInt)"
         ImageAPIClient.manager.getImage(from: cardSetup.images.png, completionHandler: {cell.cardPoster.image = $0}, errorHandler: {print($0)})
+                    self.blackJackCollectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.bottom, animated: true)
+
         return cell
     }
     
