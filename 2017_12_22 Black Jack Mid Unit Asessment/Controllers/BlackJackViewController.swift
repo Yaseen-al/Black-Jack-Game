@@ -20,7 +20,7 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
             guard let player = player else {
                 return
             }
-            self.currentScoreLabel.text = "Your score: \(player.score)"
+            self.currentScoreLabel.text = "Your Hand score: \(player.score)"
             print("Win:\(player.win), score:\(player.score)")
         }
     }
@@ -42,6 +42,8 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
                 let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                         alert.addAction(action)
                 present(alert, animated: true, completion: {self.tabBarController?.selectedIndex = 0})
+                self.cards.removeAll()
+                self.drawCardOutlet.isEnabled = true
             }
             else if player.score == 30{
                 currentScoreLabel.text = "You Won Score: \(player.score)"
@@ -51,6 +53,8 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
                 let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
                         alert.addAction(action)
                 present(alert, animated: true, completion: {self.tabBarController?.selectedIndex = 0})
+                self.cards.removeAll()
+                self.drawCardOutlet.isEnabled = true
                 }
             }
 

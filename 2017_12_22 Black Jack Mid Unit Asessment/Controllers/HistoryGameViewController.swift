@@ -19,6 +19,10 @@ class HistoryGameViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func resetHistoryButton(_ sender: UIButton) {
         playerDataModel.shared.resetList()
         self.players = playerDataModel.shared.getPlayerList()
+        let alert = UIAlertController(title: "History Cleared", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     
