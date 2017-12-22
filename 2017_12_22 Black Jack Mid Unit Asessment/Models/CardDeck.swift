@@ -10,6 +10,7 @@ import Foundation
 struct CardDeck: Codable {
     let deckId: String
     let successfulCall: Bool
+    static var players = [Player]()
     enum CodingKeys: String, CodingKey {
         case successfulCall = "success"
         case deckId = "deck_id"

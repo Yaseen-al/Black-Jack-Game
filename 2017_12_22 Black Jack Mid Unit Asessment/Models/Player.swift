@@ -19,5 +19,4 @@ struct Player: Codable {
             return true
         }
     }
-    
 }

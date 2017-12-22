@@ -9,6 +9,8 @@
 import UIKit
 
 class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet weak var stopOutlet: UIButton!
+    @IBOutlet weak var drawCardOutlet: UIButton!
     @IBOutlet weak var currentScoreLabel: UILabel!
     @IBOutlet weak var blackJackCollectionView: UICollectionView!
     var cards = [Card](){
@@ -18,7 +20,6 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
             guard let player = player else {
                 return
             }
-            // TODO: check win status and alert View as well as save to th NS ARchive
             self.currentScoreLabel.text = "Your score: \(player.score)"
             print("Win:\(player.win), score:\(player.score)")
         }
@@ -30,14 +31,32 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
             }
         }
     }
-    var player: Player?
+    var player: Player?{
+        didSet{
+            // TODO: check win status and alert View as well as save to th NS ARchive
+            if let player = player{
+            if player.score > 30{
+                self.drawCardOutlet.isEnabled = false
+                playerDataModel.shared.addPlayerToPlayerList(player: player)
+            }
+            else if player.score == 30{
+                currentScoreLabel.text = "You Won Score: \(player.score)"
+                self.drawCardOutlet.isEnabled = false
+                playerDataModel.shared.addPlayerToPlayerList(player: player)
+                }
+            }
+
+        }
+    }
     
     @IBAction func stopButton(_ sender: UIButton) {
         // TODO: alert View and print the win stats
         self.cards.removeAll()
+        self.drawCardOutlet.isEnabled = true
     }
     @IBAction func drawCardButton(_ sender: UIButton) {
         guard let cardDeck = cardDeck else {
+        loadCardDeck()
             return
         }
         loadCards(from: cardDeck)
@@ -65,7 +84,6 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
         super.viewDidLoad()
         self.blackJackCollectionView.delegate = self
         self.blackJackCollectionView.dataSource = self
-        loadCardDeck()
         //Intialize the nib
         let nib = UINib(nibName: "CardCollectionViewCell", bundle: nil)
         //Register the nib to the collectionView

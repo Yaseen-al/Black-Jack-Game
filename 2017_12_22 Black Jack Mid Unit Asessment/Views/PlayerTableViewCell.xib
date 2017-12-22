@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="327" id="jSd-vo-PFa" customClass="PlayerTableViewCell" customModule="_017_12_22_Black_Jack_Mid_Unit_Asessment" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="444" height="327"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jSd-vo-PFa" id="DS8-Ko-LjK">
+                <rect key="frame" x="0.0" y="0.0" width="444" height="326.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bower-logo" translatesAutoresizingMaskIntoConstraints="NO" id="JZD-T6-Brp">
+                        <rect key="frame" x="20" y="11" width="404" height="305"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="JZD-T6-Brp" secondAttribute="trailing" id="XJm-b5-DVK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="JZD-T6-Brp" secondAttribute="bottom" id="ra5-6i-85l"/>
+                    <constraint firstItem="JZD-T6-Brp" firstAttribute="leading" secondItem="DS8-Ko-LjK" secondAttribute="leadingMargin" id="ssX-XH-QSY"/>
+                    <constraint firstItem="JZD-T6-Brp" firstAttribute="top" secondItem="DS8-Ko-LjK" secondAttribute="topMargin" id="tc5-bl-Zch"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="94" y="130.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bower-logo" width="1024" height="900"/>
+    </resources>
+</document>

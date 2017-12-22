@@ -8,26 +8,45 @@
 
 import UIKit
 
-class HistoryGameViewController: UIViewController {
-
+class HistoryGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var playersTableView: UITableView!
+    var players = [Player](){
+        didSet{
+            playersTableView.reloadData()
+        }
+    }
+    @IBAction func resetHistoryButton(_ sender: UIButton) {
+    }
     
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return players.count
+    }
     
-    
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let playerSetup = players[indexPath.row]
+//    let cell = self.playersTableView.dequeueReusableCell(withIdentifier: "PlayerTableViewCell", for: indexPath) as!
+//        PlayerTableViewCell
+        let crazyCell = self.playersTableView.dequeueReusableCell(withIdentifier: "crazyCell") as! CustomTableViewCell
+        crazyCell.cards = playerSetup.cardSet
+        return crazyCell
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.playersTableView.delegate = self
+        self.playersTableView.dataSource = self
+        // Set the NIB
+        let nib =  UINib(nibName: "PlayerTableViewCell", bundle: nil)
+        self.playersTableView.register(nib, forCellReuseIdentifier: "PlayerTableViewCell")
+        playerDataModel.shared.loadPlayerList()
+        self.players = playerDataModel.shared.getPlayerList()
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
 
     /*
     // MARK: - Navigation

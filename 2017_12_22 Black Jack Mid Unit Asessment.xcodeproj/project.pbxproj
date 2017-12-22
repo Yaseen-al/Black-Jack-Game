@@ -17,6 +17,9 @@
 		816BBB191FED70D300A9C6F2 /* Image APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816BBB181FED70D300A9C6F2 /* Image APIClient.swift */; };
 		816BBB1B1FED755A00A9C6F2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816BBB1A1FED755A00A9C6F2 /* Player.swift */; };
 		816BBB1D1FED7CEB00A9C6F2 /* PlayerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816BBB1C1FED7CEB00A9C6F2 /* PlayerDataModel.swift */; };
+		816BBB231FED970600A9C6F2 /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 816BBB221FED970600A9C6F2 /* PlayerTableViewCell.xib */; };
+		816BBB251FED973000A9C6F2 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816BBB241FED973000A9C6F2 /* PlayerTableViewCell.swift */; };
+		816BBB271FED9C9B00A9C6F2 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816BBB261FED9C9B00A9C6F2 /* CustomTableViewCell.swift */; };
 		81C0A5D31FED5BBE0000B997 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C0A5D21FED5BBE0000B997 /* AppDelegate.swift */; };
 		81C0A5D81FED5BBE0000B997 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81C0A5D61FED5BBE0000B997 /* Main.storyboard */; };
 		81C0A5DA1FED5BBE0000B997 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C0A5D91FED5BBE0000B997 /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 		816BBB181FED70D300A9C6F2 /* Image APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image APIClient.swift"; sourceTree = "<group>"; };
 		816BBB1A1FED755A00A9C6F2 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		816BBB1C1FED7CEB00A9C6F2 /* PlayerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDataModel.swift; sourceTree = "<group>"; };
+		816BBB221FED970600A9C6F2 /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
+		816BBB241FED973000A9C6F2 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		816BBB261FED9C9B00A9C6F2 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		81C0A5CF1FED5BBE0000B997 /* 2017_12_22 Black Jack Mid Unit Asessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2017_12_22 Black Jack Mid Unit Asessment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81C0A5D21FED5BBE0000B997 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81C0A5D71FED5BBE0000B997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				816BBB0A1FED64CC00A9C6F2 /* CardCollectionViewCell.xib */,
+				816BBB221FED970600A9C6F2 /* PlayerTableViewCell.xib */,
+				816BBB261FED9C9B00A9C6F2 /* CustomTableViewCell.swift */,
+				816BBB241FED973000A9C6F2 /* PlayerTableViewCell.swift */,
 				816BBB0C1FED657D00A9C6F2 /* CardCollectionViewCell.swift */,
 			);
 			path = Views;
@@ -190,6 +199,7 @@
 			files = (
 				816BBB0B1FED64CC00A9C6F2 /* CardCollectionViewCell.xib in Resources */,
 				81C0A5DD1FED5BBE0000B997 /* LaunchScreen.storyboard in Resources */,
+				816BBB231FED970600A9C6F2 /* PlayerTableViewCell.xib in Resources */,
 				81C0A5DA1FED5BBE0000B997 /* Assets.xcassets in Resources */,
 				81C0A5D81FED5BBE0000B997 /* Main.storyboard in Resources */,
 			);
@@ -208,9 +218,11 @@
 				816BBB0D1FED657D00A9C6F2 /* CardCollectionViewCell.swift in Sources */,
 				81C0A5D31FED5BBE0000B997 /* AppDelegate.swift in Sources */,
 				816BBB0F1FED6AD900A9C6F2 /* NetworkHelper.swift in Sources */,
+				816BBB251FED973000A9C6F2 /* PlayerTableViewCell.swift in Sources */,
 				81C0A5E91FED63080000B997 /* BlackJackViewController.swift in Sources */,
 				816BBB131FED6BFA00A9C6F2 /* CardDeck APIClient.swift in Sources */,
 				816BBB1D1FED7CEB00A9C6F2 /* PlayerDataModel.swift in Sources */,
+				816BBB271FED9C9B00A9C6F2 /* CustomTableViewCell.swift in Sources */,
 				816BBB171FED6E1B00A9C6F2 /* Card APIClient.swift in Sources */,
 				81C0A5EB1FED63190000B997 /* HistoryGameViewController.swift in Sources */,
 				816BBB151FED6D5500A9C6F2 /* Card.swift in Sources */,
