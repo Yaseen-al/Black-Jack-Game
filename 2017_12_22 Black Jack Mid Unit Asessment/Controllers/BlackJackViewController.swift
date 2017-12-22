@@ -111,7 +111,6 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

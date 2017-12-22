@@ -62,6 +62,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get up to 30 without crossing it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmd-Cp-NMO">
+                                <rect key="frame" x="86.666666666666686" y="584.33333333333337" width="241" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -69,12 +75,14 @@
                             <constraint firstItem="uhc-f2-7gv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9tH-Uz-lNO"/>
                             <constraint firstItem="uhc-f2-7gv" firstAttribute="top" secondItem="SkL-3g-waQ" secondAttribute="bottom" id="DQa-9f-i4t"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="centerX" secondItem="yPl-9F-oDO" secondAttribute="trailing" constant="40" id="Dbj-Oj-Knr"/>
+                            <constraint firstItem="Pmd-Cp-NMO" firstAttribute="top" secondItem="q6X-Wq-cjj" secondAttribute="bottom" constant="5" id="Jow-8A-djP"/>
                             <constraint firstItem="SkL-3g-waQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Pqn-x2-owd"/>
                             <constraint firstItem="uhc-f2-7gv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="YMY-Ey-XpD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q6X-Wq-cjj" secondAttribute="trailing" constant="20" id="aYZ-TD-2Xx"/>
                             <constraint firstItem="yPl-9F-oDO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="eWQ-F3-GnS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SkL-3g-waQ" secondAttribute="trailing" id="ec6-bJ-iaP"/>
                             <constraint firstItem="yPl-9F-oDO" firstAttribute="top" secondItem="uhc-f2-7gv" secondAttribute="bottom" constant="20" id="fUn-MY-mcA"/>
+                            <constraint firstItem="Pmd-Cp-NMO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gQ0-AP-or3"/>
                             <constraint firstItem="yPl-9F-oDO" firstAttribute="centerY" secondItem="q6X-Wq-cjj" secondAttribute="centerY" id="lnR-yv-Sh2"/>
                             <constraint firstItem="q6X-Wq-cjj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="20" id="moz-Eu-dNm"/>
                             <constraint firstItem="uhc-f2-7gv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.65" id="xMO-n4-NQV"/>
