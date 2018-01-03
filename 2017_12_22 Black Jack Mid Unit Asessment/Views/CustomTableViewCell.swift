@@ -9,20 +9,25 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell, UICollectionViewDataSource,UICollectionViewDelegate {
-    var cards = [Card]()
+    var cards = [Card](){
+        didSet{
+            playerCollectionView.reloadData()
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cards.count
     }
     @IBOutlet weak var playerScore: UILabel!
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard indexPath.row < cards.count else {
-            return UICollectionViewCell()
-        }
+//        guard indexPath.row < cards.count else {
+//            return UICollectionViewCell()
+//        }
         let cardSetup = cards[indexPath.row]
         let cell = playerCollectionView.dequeueReusableCell(withReuseIdentifier: "specialCardCell", for: indexPath) as! CardCollectionViewCell
         cell.cardLabel.text = "cardValue:\(cardSetup.valueInt)"
-        ImageAPIClient.manager.getImage(from: cardSetup.images.png, completionHandler: {cell.cardPoster.image = $0}, errorHandler: {print($0)})
+        cell.cardPoster.image = #imageLiteral(resourceName: "bower-logo")
+        ImageAPIClient.manager.getImage(from: cardSetup.images.png, completionHandler: {cell.cardPoster.image = $0; cell.setNeedsLayout()}, errorHandler: {print($0)})
         return cell
     }
 
@@ -37,6 +42,7 @@ class CustomTableViewCell: UITableViewCell, UICollectionViewDataSource,UICollect
         let nib =  UINib(nibName: "CardCollectionViewCell", bundle: nil)
         self.playerCollectionView.register(nib, forCellWithReuseIdentifier: "specialCardCell")
         print("it has awaken")
+                print(cards.count)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

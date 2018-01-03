@@ -17,6 +17,7 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
         didSet{
             self.player = Player(cardSet: cards)
             blackJackCollectionView.reloadData()
+            print(cards.count)
             guard let player = player else {
                 return
             }
@@ -31,6 +32,7 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
             }
         }
     }
+
     var player: Player?{
         didSet{
             // TODO: check win status and alert View as well as save to th NS ARchive
@@ -60,12 +62,17 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
 
         }
     }
-    
     @IBAction func stopButton(_ sender: UIButton) {
         // TODO: alert View and print the win stats
-
-        self.cards.removeAll()
         self.drawCardOutlet.isEnabled = true
+        if let player = player{
+            playerDataModel.shared.addPlayerToPlayerList(player: player)
+            let alert = UIAlertController(title: "Game Stoped", message: "Your score = \(player.score)", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: {self.tabBarController?.selectedIndex = 0})
+        }
+                self.cards.removeAll()
     }
     @IBAction func drawCardButton(_ sender: UIButton) {
 
@@ -75,7 +82,6 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
         }
         loadCards(from: cardDeck)
     }
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cards.count
     }
@@ -84,7 +90,8 @@ class BlackJackViewController: UIViewController, UICollectionViewDelegate, UICol
         let cardSetup =  cards[indexPath.row]
         let cell = blackJackCollectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
         cell.cardLabel.text = "Card Value: \(cardSetup.valueInt)"
-        ImageAPIClient.manager.getImage(from: cardSetup.images.png, completionHandler: {cell.cardPoster.image = $0}, errorHandler: {print($0)})
+        cell.cardPoster.image = nil
+        ImageAPIClient.manager.getImage(from: cardSetup.images.png, completionHandler: {cell.cardPoster.image = $0; cell.setNeedsLayout()}, errorHandler: {print($0)})
                     self.blackJackCollectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.bottom, animated: true)
 
         return cell
